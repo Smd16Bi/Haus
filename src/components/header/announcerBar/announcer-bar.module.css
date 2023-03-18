@@ -1,0 +1,15 @@
+.announcer-bar {
+    width: 100%;
+    padding: 16px 0;
+    background-color: #191919;
+}
+
+.announcer-bar__info {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+}
