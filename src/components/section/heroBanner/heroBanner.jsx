@@ -5,7 +5,7 @@ import style from "./heroBanner.module.css"
 const HeroBanner = ({state}) => {
     return (
         <div className="heroBanner">
-            <div className={style.container}>
+            <div className={style.wrapper}>
                 <div className={`${style.image}`}>
                     <img src={state.img} alt="Hero banner" />
                 </div>

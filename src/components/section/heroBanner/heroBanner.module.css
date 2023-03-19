@@ -1,4 +1,4 @@
-.container {
+.wrapper {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -59,7 +59,7 @@
 }
 
 @media(max-width: 998px) {
-    .container {
+    .wrapper {
         flex-wrap: wrap;
     }
     .image {
