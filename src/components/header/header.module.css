@@ -138,7 +138,7 @@
     width: 95%;
     background-color: tan;
     padding: 25px;
-    top: 0px;
+    top: 10px;
     left: 0;
     transform: translateX(-100%);
     transition: all 0.3s;
@@ -174,5 +174,8 @@
     }
     .mobileMenu_list >*:not(:last-child) {
         margin-bottom: 25px;
+    }
+    .header-wrap {
+        top: 40px;
     }
 }
