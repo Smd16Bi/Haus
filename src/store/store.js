@@ -3,6 +3,9 @@ import hero from "../assets/hero.png"
 import benefit1 from "../assets/benefit1.png"
 import benefit2 from "../assets/benefit2.png"
 import benefit3 from "../assets/benefit3.png"
+import prod1 from "../assets/prod1.png"
+import prod2 from "../assets/prod2.png"
+import prod3 from "../assets/prod3.png"
 
 function id() {
     return nanoid();
@@ -38,8 +41,43 @@ let store = {
                 { id: id(), text: "What makes Haus so special is its incredible flavors.", img: benefit1, alt: "Food & Wine" },
                 { id: id(), text: "For the wine or cocktail lover whos tried it all and wants something new and refreshing.", img: benefit2, alt: "The New York Times" },
                 { id: id(), text: "Cleaner, responsibly sourced, and lower in alcohol.", img: benefit3, alt:"Bon appetit"  }
-            ]
-        }
+            ],
+            featured: {
+                title: "Made with natural ingredients, nothing fake",
+                urlBtn: "",
+                urlTitle: "Shop All Flavors"
+            }
+        },
+        cart:[],
+        products: [
+            {
+                id:id(), 
+                name: "The Sampler Kit",
+                description: "Try a variety of Haus flavors with our customizable four-bottle kit. Each bottle serves 2-3 drinks.",
+                price: 20.00,
+                img:prod1,
+                alt:"Product name The Sampler Kit",
+                isBestSeller: false
+            },
+            {
+                id:id(), 
+                name: "Grapefruit Jalapeño",
+                description: "Light and refreshing, this aperitif is a bright blend of citrus with a subtle kick of fresh jalapeño.",
+                price: 25.00,
+                img:prod2,
+                alt:"Product name Grapefruit Jalapeño",
+                isBestSeller: true
+            },
+            {
+                id:id(), 
+                name: "Citrus Flower",
+                description: "A fresh Californian take on the apéritif. Made with crisp lemon and subtle elderflower.",
+                price: 30.00,
+                img:prod3,
+                alt:"Product name Citrus Flower",
+                isBestSeller: true
+            }
+        ]
     },
     _callSubscribe() {
     },

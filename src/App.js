@@ -17,7 +17,7 @@ const App = ({state}) => {
         <Header state={state.header} />
         <main className='main'>
           <Routes>
-            <Route path="/" element={<Home state={state.section}/>} />
+            <Route path="/" element={<Home state={state.section} products={state.products}/>} />
             <Route path="" element />
             <Route path="" element />
             <Route path="" element />

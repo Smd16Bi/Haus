@@ -7,7 +7,6 @@ import 'swiper/css';
 
 
 const Announcer = ({ text }) => {
-    console.log(text);
     let slides = text.map((el, index) => {
 
         return <SwiperSlide key={index}>
