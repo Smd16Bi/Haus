@@ -156,6 +156,7 @@
     transition: all 0.3s;
 }
 
+  
 @media(max-width: 768px) {
     .wrapper {
         display: flex;

@@ -7,21 +7,23 @@ import {
   Routes,
 } from 'react-router-dom';
 import Home from './components/main/HomePage/home';
+import Cart from './components/section/Cart/cart';
 
 
 
-const App = ({state}) => {
+
+const App = ({state,dispatch}) => {
   return (
     <BrowserRouter>
       <div className='app_wrapper'>
         <Header state={state.header} />
         <main className='main'>
           <Routes>
-            <Route path="/" element={<Home state={state.section} products={state.products}/>} />
+            <Route path="/" element={<Home state={state.section} products={state.products} dispatch={dispatch}/>} />
             <Route path="" element />
             <Route path="" element />
             <Route path="" element />
-            <Route path="" element />
+            <Route path="/cart" element={<Cart state={state.cart}/>} />
           </Routes>
         </main>
         <footer className="footer"></footer>
