@@ -23,7 +23,7 @@ const App = ({state,dispatch}) => {
             <Route path="" element />
             <Route path="" element />
             <Route path="" element />
-            <Route path="/cart" element={<Cart state={state.cart}/>} />
+            <Route path="/cart" element={<Cart state={state.cart} dispatch={dispatch}/>} />
           </Routes>
         </main>
         <footer className="footer"></footer>

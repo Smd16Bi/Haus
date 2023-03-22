@@ -12,6 +12,9 @@ function id() {
 }
 
 const ADDCART = "Add cart"
+const PLUS = "Plus"
+const MINUS = "Minis"
+
 let store = {
     _state: {
         header: {
@@ -28,7 +31,7 @@ let store = {
             navRight: [
                 { id: id(), link: "Newsletter", path: "/newsletter" },
                 { id: id(), link: "Account", path: "/account" },
-                { id: id(), link: "Cart", path: "/cart", countItems: this.cart }
+                { id: id(), link: "Cart", path: "/cart" }
             ]
         },
         section: {
@@ -93,11 +96,11 @@ let store = {
         switch (action.type) {
             case ADDCART:
                 let selectProduct = {
-                    id:"",
+                    id: "",
                     name: "",
                     img: "",
                     quantity: 0,
-                    price: 0
+                    price: 0,
                 }
                 this._state.products.filter(el => {
                     if (el.id === action.id) {
@@ -110,7 +113,32 @@ let store = {
                     return el
                 })
                 this._state.cart.push(selectProduct);
+                this._callSubscribe(this._state);
                 break;
+            case PLUS:
+                action.obj.filter(el => {
+                    if (el.id === action.id) {
+                        el.quantity++;
+                        el.total = el.quantity * el.price
+                        return el
+                    } else {
+                        return el
+                    }
+                })
+                this._callSubscribe(this._state);
+                break
+            case MINUS:
+                action.obj.filter(el => {
+                    if (el.id === action.id && el.quantity >= 2 ) {
+                        el.quantity--;
+                        el.total = el.quantity * el.price
+                        return el
+                    } else {
+                        return el
+                    }
+                })
+                this._callSubscribe(this._state);
+                break
             default:
                 break;
         }
@@ -118,7 +146,13 @@ let store = {
 }
 
 export const actionCreateAddToCart = (id) => {
-    return {type: ADDCART, id:id }
+    return { type: ADDCART, id: id }
+}
+export const actionCreatePlus = (id, obj) => {
+    return { type: PLUS, id: id, obj: obj }
+}
+export const actionCreateMinus = (id, obj) => {
+    return { type: MINUS, id: id, obj: obj }
 }
 
 export default store

@@ -60,6 +60,11 @@ body {
     color: #fff;
     transition: all 0.3s;
 }
+.headerLine {
+    height: 150px;
+    width: 100%;
+    background-color: #996B60;
+}
 
 @media(max-width: 998px) {
     [class*="container"] {
