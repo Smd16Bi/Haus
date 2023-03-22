@@ -98,3 +98,45 @@
 .totalPrice {
     
 }
+.cartIsEmpty {
+    margin: 0 auto 16px auto;
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 44px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #000;
+}
+
+.cartLink  {
+    text-transform: uppercase;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #000;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content
+}
+
+.cartLink::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transform: scale(0);
+    transition: all 0.3s;
+}
+.cartLink:hover::before {
+    transform: scale(1);
+    transition: all 0.3s;
+}

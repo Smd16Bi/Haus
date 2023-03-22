@@ -1,7 +1,9 @@
 import React from "react";
 import Line from "../../../snipets/lineHeader";
-import { actionCreateMinus, actionCreatePlus } from "../../../store/store";
+import { actionCreateMinus, actionCreatePlus, actionCreateTotal } from "../../../store/store";
 import style from "./cart.module.css"
+import { NavLink } from "react-router-dom";
+
 
 const Cart = ({ state, dispatch }) => {
     const array = state;
@@ -11,47 +13,72 @@ const Cart = ({ state, dispatch }) => {
         ));
     });
 
-    const changeHandle = () => {
+    let totalPrice = React.createRef()
 
+    const changeHandle = () => {
     }
     const plus = (id) => {
         dispatch(actionCreatePlus(id, uniqueObjects));
+        changeFinalPrice(totalPrice)
+
     }
     const minus = (id) => {
         dispatch(actionCreateMinus(id, uniqueObjects));
+        changeFinalPrice(totalPrice)
+
     }
 
-    let items = uniqueObjects.map((el, index) => {
-        return (
-            <div className={style.cart_item} key={index} id={el.id}>
-                <div className={style.cart_img}>
-                    <img src={el.img} alt={el.alt} />
-                </div>
-                <div className={style.cart_info}>
-                    <h2 className={style.name}> {el.name}</h2>
-                    <p className={style.price}> 1 * {el.price + ".00 $"}</p>
-                    <div className={style.cart_quntity}>
-                        <button onClick={() => { minus(el.id) }} className={style.btn_minus}>-</button>
-                        <input className={style.cartHow} onChange={changeHandle} value={el.quantity} type="number" defaultValue={el.quantity} />
-                        <button onClick={() => { plus(el.id) }} className={style.btn_plus}>+</button>
-                    </div>
-                    <div className={style.totalPrice}>
-                        Final price: {el.total ? el.total : el.price} .00 $
-                    </div>
-                </div>
+    const changeFinalPrice = (selector) => {
+        dispatch(actionCreateTotal(selector))
+    }
 
-            </div>
-        )
-    })
- 
+
+    let items;
+    let finnaly;
+
+    if (array.length === 0) {
+        items = <div>
+            <h1 className={style.cartIsEmpty}>Cart is empty</h1>
+            <NavLink className={style.cartLink} to="/">Back Home </NavLink>
+        </div>
+    } else {
+        items = uniqueObjects.map((el, index) => {
+            return (
+                <div className={style.cart_item} key={index} id={el.id}>
+                    <div className={style.cart_img}>
+                        <img src={el.img} alt={el.alt} />
+                    </div>
+                    <div className={style.cart_info}>
+                        <h2 className={style.name}> {el.name}</h2>
+                        <p className={style.price}> 1 * {el.price + ".00 $"}</p>
+                        <div className={style.cart_quntity}>
+                            <button onClick={() => { minus(el.id) }} className={style.btn_minus}>-</button>
+                            <input className={style.cartHow} onChange={changeHandle} value={el.quantity} type="number" defaultValue={el.quantity} />
+                            <button onClick={() => { plus(el.id) }} className={style.btn_plus}>+</button>
+                        </div>
+                        <div className={style.totalPrice}>
+                            Final price: {el.total ? el.total : el.price} .00 $
+                        </div>
+                    </div>
+                </div>
+            )
+        })
+        let price = 0;
+        for(let e of uniqueObjects) {
+            console.log(e.price);
+            if(e.price) {
+                price += +e.price
+            }
+        }
+        finnaly = <div ref={totalPrice} className={style.total}> Total cart {price}.00 $ </div>
+    }
+
     return (
         <>
             <Line />
             <div className={`${style.cartWrap} ${style.container}`}>
                 {items}
-                <div className={style.total}>
-                   Total cart .00 $
-                </div>
+                {finnaly}
             </div>
         </>
     )

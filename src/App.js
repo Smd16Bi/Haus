@@ -16,7 +16,7 @@ const App = ({state,dispatch}) => {
   return (
     <BrowserRouter>
       <div className='app_wrapper'>
-        <Header state={state.header} />
+        <Header state={state.header} counter={state.cart}/>
         <main className='main'>
           <Routes>
             <Route path="/" element={<Home state={state.section} products={state.products} dispatch={dispatch}/>} />

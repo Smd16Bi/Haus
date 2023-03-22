@@ -11,9 +11,10 @@ function id() {
     return nanoid();
 }
 
-const ADDCART = "Add cart"
-const PLUS = "Plus"
-const MINUS = "Minis"
+const ADDCART = "Add cart";
+const PLUS = "Plus";
+const MINUS = "Minis";
+const TOTAL = "Total";
 
 let store = {
     _state: {
@@ -31,7 +32,7 @@ let store = {
             navRight: [
                 { id: id(), link: "Newsletter", path: "/newsletter" },
                 { id: id(), link: "Account", path: "/account" },
-                { id: id(), link: "Cart", path: "/cart" }
+                { id: id(), link: "Cart", path: "/cart", isCount: true }
             ]
         },
         section: {
@@ -139,6 +140,18 @@ let store = {
                 })
                 this._callSubscribe(this._state);
                 break
+            case TOTAL:
+                let arr = this._state.cart;
+                let price = 0
+                if (arr.length > 0) {
+                    for(let el of arr) {
+                        price += el.total ? +el.total : +el.price
+                    }
+                action.selector.current.innerHTML = ` Total cart ${price}.00 $`
+                }
+                this._callSubscribe(this._state);
+
+                break
             default:
                 break;
         }
@@ -153,6 +166,9 @@ export const actionCreatePlus = (id, obj) => {
 }
 export const actionCreateMinus = (id, obj) => {
     return { type: MINUS, id: id, obj: obj }
+}
+export const actionCreateTotal = (selector) => {
+    return { type: TOTAL, selector:selector }
 }
 
 export default store
