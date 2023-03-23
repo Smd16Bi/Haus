@@ -3,8 +3,9 @@ import { actionCreateAddToCart } from "../../../store/store";
 import style from "./featured.module.css"
 
 const Featured = ({ state, products, dispatch }) => {
-    const addCart = (id) => {
-        dispatch(actionCreateAddToCart(id));
+    const addCart = (event,id) => {
+        let pop = event.target.nextElementSibling;
+        dispatch(actionCreateAddToCart(id,pop));
     }
     let cardProduct = products.map((el) => {
         let bestseler = el.isBestSeller
@@ -20,7 +21,8 @@ const Featured = ({ state, products, dispatch }) => {
                 <div className={style.productText}>
                     <h3 className={style.productName}>{el.name}</h3>
                     <p className={style.productDescription}>{el.description}</p>
-                    <button onClick={() => { addCart(el.id) }} className={style.productAdd}>Shop now</button>
+                    <button onClick={(event) => { addCart(event,el.id) }} className={style.productAdd}>Shop now</button>
+                    <div className="notify">Product added </div>
                 </div>
             </div>
         )

@@ -8,11 +8,7 @@ import style from "./header.module.css";
 
 const Header = ({ state,counter }) => {
     const [open, setOpen] = useState(false)
-    const [count, setCount] = useState(0)
 
-
-
-    
     const openMenu = (event) => {
         let html = event.target.closest("html");
         html.classList.toggle("overflow_hidden")
@@ -26,10 +22,14 @@ const Header = ({ state,counter }) => {
             </li>
         )
     })
+    let items;
     const rightMenu = state.navRight.map(el => {
+        if (el.isCount === true && counter.length > 0) {
+            items = <span className={style.count} >{counter.length}</span>
+        }
         return (
             <li className={style["header_item"]} key={el.id}>
-                {el.isCount && <span className={style.count} >{count}</span>}
+                {el.isCount && items }
                 <NavLink className={({ isActive }) => (isActive ? style["header_link"] + " " + style["active"] : style["header_link"])} to={el.path}>{el.link}</NavLink>
             </li>
         )

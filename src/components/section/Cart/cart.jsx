@@ -1,9 +1,8 @@
 import React from "react";
 import Line from "../../../snipets/lineHeader";
-import { actionCreateMinus, actionCreatePlus, actionCreateTotal } from "../../../store/store";
+import { actionCreateMinus, actionCreatePlus, actionCreateRemove, actionCreateTotal } from "../../../store/store";
 import style from "./cart.module.css"
 import { NavLink } from "react-router-dom";
-
 
 const Cart = ({ state, dispatch }) => {
     const array = state;
@@ -30,6 +29,10 @@ const Cart = ({ state, dispatch }) => {
 
     const changeFinalPrice = (selector) => {
         dispatch(actionCreateTotal(selector))
+    }
+
+    const remove = (id) => {
+        dispatch(actionCreateRemove(id,array))
     }
 
 
@@ -59,14 +62,17 @@ const Cart = ({ state, dispatch }) => {
                         <div className={style.totalPrice}>
                             Final price: {el.total ? el.total : el.price} .00 $
                         </div>
+                        <div onClick={() => { remove(el.id) }} className={style.removeBtn}>
+                            Remove product
+                        </div>
                     </div>
                 </div>
             )
         })
         let price = 0;
-        for(let e of uniqueObjects) {
+        for (let e of uniqueObjects) {
             console.log(e.price);
-            if(e.price) {
+            if (e.price) {
                 price += +e.price
             }
         }

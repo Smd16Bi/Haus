@@ -6,6 +6,8 @@ import benefit3 from "../assets/benefit3.png"
 import prod1 from "../assets/prod1.png"
 import prod2 from "../assets/prod2.png"
 import prod3 from "../assets/prod3.png"
+import banner from "../assets/banner.png"
+import manual from "../assets/manual.png"
 
 function id() {
     return nanoid();
@@ -15,6 +17,7 @@ const ADDCART = "Add cart";
 const PLUS = "Plus";
 const MINUS = "Minis";
 const TOTAL = "Total";
+const REMOVE = "Remove"
 
 let store = {
     _state: {
@@ -52,6 +55,22 @@ let store = {
                 title: "Made with natural ingredients, nothing fake",
                 urlBtn: "",
                 urlTitle: "Shop All Flavors"
+            },
+            banner: {
+                img: banner,
+                alt: "Banner",
+                title: "An intro to apéritifs",
+                subTitle: "Apéritifs are a category of spirits with complex flavors derived from fruits, herbs, and botanicals. Their lighter alcohol content (less than whiskey, more than wine) makes them perfect to sip all evening."
+            },
+            manual: {
+                img: manual,
+                alt: "Manual",
+                step: [
+                    { id: id(), title: "Easy to drink", info: "The perfect anytime drink, sip Haus on its own or with simple mixers you probably already have like soda or tonic." },
+                    { id: id(), title: "Natural ingredients. Nothing fake.", info: "Artificial ingredients and refined sugars are a big culprit in hangovers. Feel good about what’s in your glass that night — and the next day." },
+                    { id: id(), title: "Delivered to your door", info: "We blend, bottle, and ship our products straight from Sonoma, CA to your doorstep." },
+                ]
+
             }
         },
         cart: [],
@@ -114,6 +133,10 @@ let store = {
                     return el
                 })
                 this._state.cart.push(selectProduct);
+                action.pop.classList.add("show");
+                setInterval(() => {
+                    action.pop.classList.remove("show");
+                }, 3000);
                 this._callSubscribe(this._state);
                 break;
             case PLUS:
@@ -130,7 +153,7 @@ let store = {
                 break
             case MINUS:
                 action.obj.filter(el => {
-                    if (el.id === action.id && el.quantity >= 2 ) {
+                    if (el.id === action.id && el.quantity >= 2) {
                         el.quantity--;
                         el.total = el.quantity * el.price
                         return el
@@ -144,13 +167,17 @@ let store = {
                 let arr = this._state.cart;
                 let price = 0
                 if (arr.length > 0) {
-                    for(let el of arr) {
+                    for (let el of arr) {
                         price += el.total ? +el.total : +el.price
                     }
-                action.selector.current.innerHTML = ` Total cart ${price}.00 $`
+                    action.selector.current.innerHTML = ` Total cart ${price}.00 $`
                 }
                 this._callSubscribe(this._state);
 
+                break
+            case REMOVE:
+                this._state.cart = action.obj.filter(el => el.id !== action.id);
+                this._callSubscribe(this._state);
                 break
             default:
                 break;
@@ -158,8 +185,8 @@ let store = {
     }
 }
 
-export const actionCreateAddToCart = (id) => {
-    return { type: ADDCART, id: id }
+export const actionCreateAddToCart = (id, pop) => {
+    return { type: ADDCART, id: id, pop: pop }
 }
 export const actionCreatePlus = (id, obj) => {
     return { type: PLUS, id: id, obj: obj }
@@ -168,7 +195,10 @@ export const actionCreateMinus = (id, obj) => {
     return { type: MINUS, id: id, obj: obj }
 }
 export const actionCreateTotal = (selector) => {
-    return { type: TOTAL, selector:selector }
+    return { type: TOTAL, selector: selector }
+}
+export const actionCreateRemove = (id, obj) => {
+    return { type: REMOVE, id: id, obj: obj }
 }
 
 export default store
