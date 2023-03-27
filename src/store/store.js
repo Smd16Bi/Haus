@@ -70,8 +70,14 @@ let store = {
                     { id: id(), title: "Natural ingredients. Nothing fake.", info: "Artificial ingredients and refined sugars are a big culprit in hangovers. Feel good about what’s in your glass that night — and the next day." },
                     { id: id(), title: "Delivered to your door", info: "We blend, bottle, and ship our products straight from Sonoma, CA to your doorstep." },
                 ]
+            },
+            review: [
+                {id:id(), body: "Haus has found the solution I didn`t really know I was looking for!", name:"— Susan"},
+                {id:id(), body: "I love the flavor of this apéritif — it`s light and lively, and it`s refreshing with seltzer or tonic.", name:"— Fiona"},
+                {id:id(), body: "It`s delicious, and unique. I love everything from the packaging, to the flavors.", name:"— Esteban"},
+                {id:id(), body: "I love the flavor of this apéritif — it`s light and lively, ", name:"- Maria"},
+            ]
 
-            }
         },
         cart: [],
         products: [

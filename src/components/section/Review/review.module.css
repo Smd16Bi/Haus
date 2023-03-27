@@ -1,0 +1,127 @@
+.review {
+    background-color: #000000;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.container {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    position: relative;
+
+}
+
+.reviewSwiper {}
+
+.reviewSlide {}
+
+.body {}
+
+.title {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+    margin: 0 0 17px 0;
+}
+
+.name {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #fff;
+}
+
+.prev {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+}
+.next {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}
+.prev, 
+.next {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+.prev svg, 
+.next svg {
+    width: 20px;
+    height: 20px;
+}
+.prev svg path,
+.next svg path {
+    fill: #fff;
+    transition: all 0.3;
+}
+.prev svg:hover path,
+.next svg:hover path {
+    fill: #ccc;
+    transition: all 0.3;
+}
+
+
+.swiper-wrap {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.swiper-wrap .swiper-wrapper {
+    width: 100%;
+}
+
+@media screen and (min-width: 568px) {
+    .swiper-wrap {
+        max-width: 568px;
+    }
+}
+
+@media screen and (min-width: 998px) {
+    .swiper-wrap {
+        max-width: 998px;
+    }
+}
+
+@media screen and (min-width: 1140px) {
+   .swiper-wrap {
+        max-width: 1140px;
+    }
+}
+@media screen and (min-width: 1440px) {
+   .swiper-wrap {
+        max-width: 100%;
+    }
+}
+
+@media(max-width: 768px) {
+    .review {
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+    
+    .container {
+        padding-top: 45px;
+        padding-bottom: 45px;    
+    }
+}
