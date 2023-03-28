@@ -19,7 +19,28 @@ body {
     width: 100%;
 }
 
-.header {}
+.header {
+    position: sticky;
+    top: 0px;
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+    z-index: 10;
+}
+.header.showHeader .header_wrap {
+    background-color: #996B60;
+    top: 50px;
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+}
+
+.header.hideHeader {
+    top: -250px;
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+}
 
 .main {
     flex: 1;

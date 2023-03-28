@@ -5,6 +5,8 @@ import Featured from "../../section/FeaturedProduct/featured";
 import HeroBanner from "../../section/heroBanner/heroBanner";
 import Manual from "../../section/Manual/manual";
 import Review from "../../section/Review/review";
+import TextWithImage from "../../section/TextWithImage/textWithImage";
+
 
 const Home = ({state,products,dispatch}) => {
     return (
@@ -15,6 +17,7 @@ const Home = ({state,products,dispatch}) => {
         <Banner state={state.banner}/>
         <Manual state={state.manual}/>
         <Review state={state.review} />
+        <TextWithImage state={state.textWithImage}/>
         </>
     )
 }

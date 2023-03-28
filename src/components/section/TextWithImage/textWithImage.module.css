@@ -1,0 +1,121 @@
+.twi {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.twi_container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.item_img {
+    position: relative;
+    width: 550px;
+    height: 470px;
+    overflow: hidden;
+}
+
+.item_img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.item_text {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 660px);
+}
+
+.text_title {
+    font-family: 'Libre Caslon Text', serif;
+    font-size: 64px;
+    font-weight: 400;
+    line-height: 80px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+    margin: 0 0 25px 0;
+}
+
+.text_wrap {}
+
+.text_wrap p {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+}
+
+.text_one {}
+
+.text_two {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+}
+
+.text_btn {
+    margin-top: 35px;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 1px;
+    text-align: left;
+    color: #000000;
+    opacity: 0.8;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: relative;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.text_btn::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    transform: scale(0);
+    transition: all 0.3s;
+}
+.text_btn:hover::before {
+    transform: scale(1);
+    transition: all 0.3s;
+}
+
+@media(max-width: 1140px) {
+    .item_text {
+        max-width: 100%
+    }
+    .twi_container {
+        flex-direction: column-reverse;
+    }
+    .text_title {
+        font-size: 35px;
+        line-height: 45px;
+    }
+    
+    .item_img {
+        position: relative;
+        width: 100%;
+        max-width: 550px;
+        height: 470px;
+        overflow: hidden;
+        text-align: center;
+        margin: 25px auto 0px auto;
+    }
+}

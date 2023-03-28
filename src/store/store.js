@@ -8,6 +8,7 @@ import prod2 from "../assets/prod2.png"
 import prod3 from "../assets/prod3.png"
 import banner from "../assets/banner.png"
 import manual from "../assets/manual.png"
+import twi from "../assets/textwithimage.png"
 
 function id() {
     return nanoid();
@@ -76,8 +77,14 @@ let store = {
                 {id:id(), body: "I love the flavor of this apéritif — it`s light and lively, and it`s refreshing with seltzer or tonic.", name:"— Fiona"},
                 {id:id(), body: "It`s delicious, and unique. I love everything from the packaging, to the flavors.", name:"— Esteban"},
                 {id:id(), body: "I love the flavor of this apéritif — it`s light and lively, ", name:"- Maria"},
-            ]
-
+            ],
+            textWithImage: {
+                img: twi,
+                alt: "Image text",
+                title: "We do things differently than most producers",
+                textPartOne: "At [Company Name], we believe in crafting drinks that are better for you. Our refreshing and delicious products are made with natural ingredients that work together to give you a truly unique taste experience",
+                textPartTwo: "Our flavors are derived from real fruits, herbs, and botanicals, not ingredients from a lab. We leave out the artificial ingredients and excess sugar, and tell you what`s inside. It`s a better way to drink."
+            }
         },
         cart: [],
         products: [
