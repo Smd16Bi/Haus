@@ -9,6 +9,7 @@ import prod3 from "../assets/prod3.png"
 import banner from "../assets/banner.png"
 import manual from "../assets/manual.png"
 import twi from "../assets/textwithimage.png"
+import bg from "../assets/bg.png"
 
 function id() {
     return nanoid();
@@ -29,13 +30,9 @@ let store = {
                 { slide: "Get free shipping on orders over $50 today!" },
             ],
             navLeft: [
-                { id: id(), link: "Shop", path: "/shop" },
-                { id: id(), link: "Membership", path: "/membership" },
                 { id: id(), link: "Our story", path: "/our-story" }
             ],
             navRight: [
-                { id: id(), link: "Newsletter", path: "/newsletter" },
-                { id: id(), link: "Account", path: "/account" },
                 { id: id(), link: "Cart", path: "/cart", isCount: true }
             ]
         },
@@ -82,9 +79,23 @@ let store = {
                 img: twi,
                 alt: "Image text",
                 title: "We do things differently than most producers",
-                textPartOne: "At [Company Name], we believe in crafting drinks that are better for you. Our refreshing and delicious products are made with natural ingredients that work together to give you a truly unique taste experience",
+                textPartOne: "At HAUS, we believe in crafting drinks that are better for you. Our refreshing and delicious products are made with natural ingredients that work together to give you a truly unique taste experience",
                 textPartTwo: "Our flavors are derived from real fruits, herbs, and botanicals, not ingredients from a lab. We leave out the artificial ingredients and excess sugar, and tell you what`s inside. It`s a better way to drink."
+            },
+            setMood: {
+                img: bg,
+                alt: "Backround image",
+                title: "Set the mood",
+                info: "Curated playlists from Woody + Helena, plus some of our friends and favorite brands.",
+                nameBtn: "Spotify",
+                follow: "Follow us, share us, drink Ha(us)",
+                solial: [
+                    {id: id(), name: "Instagram", url: "https://www.instagram.com/"},
+                    {id: id(), name: "Twitter", url: "https://twitter.com/"},
+                    {id: id(), name: "Facebook", url: "https://www.facebook.com/"}
+                ]
             }
+
         },
         cart: [],
         products: [

@@ -73,7 +73,7 @@ const Header = ({ state, counter }) => {
                         <Logo />
                     </NavLink>
                 </div>
-                <div className={`${style["header-wrap-item"]} ${style["header-wrap-item-list"]}`}>
+                <div className={`${style["header-wrap-item"]} ${style["header-wrap-item-list"]} ${style["header-wrap-item-list-right"]}`}>
                     <ul className={style["header_list"]}>
                         {rightMenu}
                     </ul>

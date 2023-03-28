@@ -5,7 +5,9 @@ import Featured from "../../section/FeaturedProduct/featured";
 import HeroBanner from "../../section/heroBanner/heroBanner";
 import Manual from "../../section/Manual/manual";
 import Review from "../../section/Review/review";
+import SetMood from "../../section/setMood/setMood";
 import TextWithImage from "../../section/TextWithImage/textWithImage";
+
 
 
 const Home = ({state,products,dispatch}) => {
@@ -18,6 +20,7 @@ const Home = ({state,products,dispatch}) => {
         <Manual state={state.manual}/>
         <Review state={state.review} />
         <TextWithImage state={state.textWithImage}/>
+        <SetMood state={state.setMood}/>
         </>
     )
 }

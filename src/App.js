@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import Home from './components/main/HomePage/home';
 import Cart from './components/section/Cart/cart';
+import Ourstory from './components/main/Ourstory/Ourstory';
+
 
 
 
@@ -20,9 +22,7 @@ const App = ({state,dispatch}) => {
         <main className='main'>
           <Routes>
             <Route path="/" element={<Home state={state.section} products={state.products} dispatch={dispatch}/>} />
-            <Route path="" element />
-            <Route path="" element />
-            <Route path="" element />
+            <Route path="/our-story" element={<Ourstory state={state.section}/>} />
             <Route path="/cart" element={<Cart state={state.cart} dispatch={dispatch}/>} />
           </Routes>
         </main>

@@ -1,6 +1,6 @@
 .header-wrap {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     padding: 25px 60px;
     position: absolute;
@@ -24,6 +24,9 @@
     justify-content: center;
 }
 
+.header-wrap-item-list-right {
+    justify-self: end;
+}
 .header-wrap-item-logo svg path {
     transition: all 0.3s;
 }
