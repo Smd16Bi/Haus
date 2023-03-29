@@ -69,7 +69,7 @@ const Header = ({ state, counter }) => {
                     </ul>
                 </div>
                 <div className={`${style["header-wrap-item"]} ${style["header-wrap-item-logo"]}`}>
-                    <NavLink to="/">
+                    <NavLink to="/Haus">
                         <Logo />
                     </NavLink>
                 </div>

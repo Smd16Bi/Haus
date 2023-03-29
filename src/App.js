@@ -21,7 +21,7 @@ const App = ({state,dispatch}) => {
         <Header state={state.header} counter={state.cart}/>
         <main className='main'>
           <Routes>
-            <Route path="/" element={<Home state={state.section} products={state.products} dispatch={dispatch}/>} />
+            <Route path="/Haus" element={<Home state={state.section} products={state.products} dispatch={dispatch}/>} />
             <Route path="/our-story" element={<Ourstory state={state.section}/>} />
             <Route path="/cart" element={<Cart state={state.cart} dispatch={dispatch}/>} />
           </Routes>

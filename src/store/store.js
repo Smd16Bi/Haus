@@ -25,7 +25,7 @@ let store = {
     _state: {
         footer: {
             link: [
-                { id: id(), link: "Home", path: "/" },
+                { id: id(), link: "Home", path: "/Haus" },
                 { id: id(), link: "Our story", path: "/our-story" },
                 { id: id(), link: "Cart", path: "/cart"}
             ],
