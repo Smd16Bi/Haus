@@ -23,6 +23,18 @@ const REMOVE = "Remove"
 
 let store = {
     _state: {
+        footer: {
+            link: [
+                { id: id(), link: "Home", path: "/" },
+                { id: id(), link: "Our story", path: "/our-story" },
+                { id: id(), link: "Cart", path: "/cart"}
+            ],
+            solial: [
+                {id: id(), link: "Instagram", path: "https://www.instagram.com/"},
+                {id: id(), link: "Twitter", path: "https://twitter.com/"},
+                {id: id(), link: "Facebook", path: "https://www.facebook.com/"}
+            ]
+        },
         header: {
             announcer: [
                 { slide: "Enjoy free delivery on orders above $50" },

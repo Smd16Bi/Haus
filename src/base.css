@@ -11,21 +11,27 @@ html,
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    height: 100%;
+}
+#root {
+    height: 100%;
 }
 
 .app_wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
 }
 
-.header {
-    position: sticky;
+.header.showHeader{
+    position: fixed;
     top: 0px;
     transition-property: all; 
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 500ms;
-    z-index: 10;
+    z-index: 100;
+    width: 100%;
 }
 .header.showHeader .header_wrap {
     background-color: #996B60;

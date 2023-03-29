@@ -9,7 +9,7 @@ import {
 import Home from './components/main/HomePage/home';
 import Cart from './components/section/Cart/cart';
 import Ourstory from './components/main/Ourstory/Ourstory';
-
+import Footer from './components/footer/footer';
 
 
 
@@ -26,7 +26,7 @@ const App = ({state,dispatch}) => {
             <Route path="/cart" element={<Cart state={state.cart} dispatch={dispatch}/>} />
           </Routes>
         </main>
-        <footer className="footer"></footer>
+        <Footer state={state.footer}/>
       </div>
     </BrowserRouter>
   )

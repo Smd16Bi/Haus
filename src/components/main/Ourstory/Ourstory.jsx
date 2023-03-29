@@ -7,7 +7,6 @@ import SetMood from "../../section/setMood/setMood";
 
 
 const Ourstory = ({state}) => {
-    console.log(state);
     return (
         <>
         <HeroBanner state={state.heroBanner}/>
