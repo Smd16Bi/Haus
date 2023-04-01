@@ -1,0 +1,153 @@
+/*     
+font-family: 'Libre Caslon Text', serif;
+    font-family: 'Roboto', sans-serif;
+ */
+
+html.overflow_hidden {
+    height: 100vh;
+    overflow: hidden;
+}
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 100%;
+}
+#root {
+    height: 100%;
+}
+
+.app_wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.header.showHeader{
+    position: fixed;
+    top: 0px;
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+    z-index: 100;
+    width: 100%;
+}
+.header.showHeader .header_wrap {
+    background-color: #996B60;
+    top: 50px;
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+}
+
+.header.hideHeader {
+    top: -250px;
+    transition-property: all; 
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 500ms;
+}
+
+.main {
+    flex: 1;
+
+}
+
+.footer {}
+
+[class*="container"] {
+    max-width: 1440px;
+    padding: 0 60px;
+    margin: 0 auto;
+}
+
+.main-link {
+    width: fit-content;
+    display: inline-flex;
+    padding: 18px 52px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #000000;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.main-link:hover {
+    border: 1px solid #000;
+    background-color: #000000;
+    color: #fff;
+    transition: all 0.3s;
+}
+.headerLine {
+    height: 150px;
+    width: 100%;
+    background-color: #996B60;
+}
+.notify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 52px;
+    width: 0%;
+    opacity: 0;
+    transition: width 0.3s;
+}
+.notify.show {
+    animation-name: slidein ;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+@keyframes slidein {
+    0% {
+        opacity: 0;
+        width: 0%;
+        transition: width 0.3s;
+    }
+    50% {
+        opacity: 1;
+        width: 100%;
+        transition: width 0.3s;
+    }
+    100% {
+        opacity: 0;
+        width: 0%;
+        transition: width 0.3s;
+    }
+  }
+
+@media(max-width: 998px) {
+    [class*="container"] {
+        max-width: 1440px;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
+    .headerLine {
+        height: 75px;
+    }
+}
+
+@media(max-width: 768px) {
+    .main-link {
+        width: 100%;
+    }
+}
